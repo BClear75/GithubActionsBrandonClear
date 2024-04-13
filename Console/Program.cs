@@ -86,12 +86,20 @@ namespace GithubActionsLab
         {
             double tempXBase = double.Parse(x);
             double tempYExponent = double.Parse(y);
-
-            while(tempYExponent > 1) 
+            if(tempYExponent == 0)
             {
-                tempXBase *= double.Parse(x);
-                tempYExponent--;
+                return tempXBase / tempXBase;
+            } else if(tempYExponent == 1){
+                return tempXBase;
+            } else
+            {
+                while (tempYExponent > 1)
+                {
+                    tempXBase *= double.Parse(x);
+                    tempYExponent--;
+                }
             }
+                
             return tempXBase;
         }
     }
